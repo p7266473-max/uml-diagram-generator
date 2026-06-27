@@ -206,7 +206,7 @@ if generate_btn:
     if not user_prompt.strip():
         st.warning("Please provide a text description to generate the diagram.")
     elif not api_key:
-        st.error("Error: 'GEMINI_API_KEY' not configured. Please add it to `.streamlit/secrets.toml` or enter it in the sidebar.")
+        st.error("Kindly enter API Key")
     else:
         with st.spinner("Please wait..."):
             try:
