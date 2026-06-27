@@ -6,13 +6,19 @@ import re
 from google import genai
 from google.genai import types
 
-# Page Config
-st.set_page_config(
-    page_title="UML Diagram Generator",
-    page_icon="📊",
-    layout="centered",
-    initial_sidebar_state="collapsed",
-)
+st.set_page_config(page_title="Core Sandbox Engine", layout="wide")
+
+hide_platform_elements = """
+    <style>
+        [data-testid="stToolbar"] { display: none !important; }
+        [data-testid="stDecoration"] { display: none !important; }
+        [data-testid="stStatusWidget"] { visibility: hidden !important; }
+        header { visibility: hidden !important; }
+        footer { visibility: hidden !important; }
+        .block-container { padding-top: 2rem !important; }
+    </style>
+"""
+st.markdown(hide_platform_elements, unsafe_allow_html=True)
 
 # Custom Premium Styling
 st.markdown("""
