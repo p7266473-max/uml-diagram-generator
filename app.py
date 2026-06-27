@@ -191,9 +191,9 @@ except Exception:
 # If not found in secrets, check if it was provided in a sidebar input
 if not api_key:
     api_key = st.sidebar.text_input(
-        "Gemini API Key",
+        "API Key",
         type="password",
-        help="Provide your Gemini API key to run queries."
+        help="Provide your API key to run queries."
     )
 
 generate_btn = st.button("Generate Diagram")
@@ -277,9 +277,4 @@ if generate_btn:
             except Exception as e:
                 st.error("Due to high traffic model is currently busy, try again later.")
 
-# Footer Credits
-st.markdown("""
-<div class="footer">
-    Powered by Gemini 1.5 Flash & PlantUML Rendering Engine
-</div>
-""", unsafe_allow_html=True)
+
