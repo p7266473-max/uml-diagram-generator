@@ -8,30 +8,30 @@ from google.genai import types
 
 st.set_page_config(page_title="Core Sandbox Engine", layout="wide")
 
-# Comprehensive interface sterilization
+# Precision UI Masking: Removes fork and toolbar while preserving sidebar mechanics
 st.markdown("""
     <style>
-        /* Erase main navigation toolbar elements completely */
-        header, [data-testid="stHeader"], div[data-testid="stToolbar"], div[data-testid="stDecoration"] {
+        /* Target and remove ONLY the right-side toolbar and options dropdown */
+        div[data-testid="stToolbar"] {
             display: none !important;
             visibility: hidden !important;
-            height: 0px !important;
         }
+        
+        /* Clear the upper colorful accent decoration strip */
+        div[data-testid="stDecoration"] {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        
+        /* Keep the platform status indicators hidden */
         div[data-testid="stStatusWidget"] {
             visibility: hidden !important;
             display: none !important;
         }
         
-        /* Wipe out community cloud viewer badges, profile portals, and the crown tray globally */
-        footer, .viewerBadge, [id^="viewer-badge"], div[class*="viewerBadge"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        
-        /* Maximize vertical display canvas space */
+        /* Adjust the block container top padding to keep elements high without breaking headers */
         .block-container {
-            padding-top: 1rem !important;
-            padding-bottom: 0rem !important;
+            padding-top: 2rem !important;
         }
     </style>
 """, unsafe_allow_html=True)
