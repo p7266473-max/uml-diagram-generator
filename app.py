@@ -8,33 +8,6 @@ from google.genai import types
 
 st.set_page_config(page_title="Core Sandbox Engine", layout="wide")
 
-# Precision UI Masking: Removes fork and toolbar while preserving sidebar mechanics
-st.markdown("""
-    <style>
-        /* Target and remove ONLY the right-side toolbar and options dropdown */
-        div[data-testid="stToolbar"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        
-        /* Clear the upper colorful accent decoration strip */
-        div[data-testid="stDecoration"] {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        
-        /* Keep the platform status indicators hidden */
-        div[data-testid="stStatusWidget"] {
-            visibility: hidden !important;
-            display: none !important;
-        }
-        
-        /* Adjust the block container top padding to keep elements high without breaking headers */
-        .block-container {
-            padding-top: 2rem !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
 
 # Custom Premium Styling
 st.markdown("""
