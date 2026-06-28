@@ -8,27 +8,25 @@ from google.genai import types
 
 st.set_page_config(page_title="Core Sandbox Engine", layout="wide")
 
-# 2. Aggressive UI masking including the cloud community badges
-hide_entire_platform_elements = """
+hide_embedded_platform_elements = """
     <style>
-        /* Hide top navigation utility lines */
-        [data-testid="stToolbar"] { display: none !important; }
-        [data-testid="stDecoration"] { display: none !important; }
-        [data-testid="stStatusWidget"] { visibility: hidden !important; }
+        /* Hide top navigation utility lines and headers */
         header { visibility: hidden !important; }
         [data-testid="stHeader"] { display: none !important; }
+        div[data-testid="stToolbar"] { display: none !important; }
+        div[data-testid="stDecoration"] { display: none !important; }
         
-        /* Wipe out the bottom right camera portal and crown badge containers */
+        /* Platform status widget container */
+        div[data-testid="stStatusWidget"] { visibility: hidden !important; }
+        
+        /* Default footer */
         footer { visibility: hidden !important; }
-        .viewerBadge { display: none !important; }
-        [id^="viewer-badge"] { display: none !important; }
-        div[class*="viewerBadge"] { display: none !important; }
         
-        /* Adjust layout spacing cleanly */
-        .block-container { padding-top: 2rem !important; }
+        /* Adjust layout spacing cleanly to eliminate vertical whitespace */
+        .block-container { padding-top: 1rem !important; }
     </style>
 """
-st.markdown(hide_entire_platform_elements, unsafe_allow_html=True)
+st.markdown(hide_embedded_platform_elements, unsafe_allow_html=True)
 
 # Custom Premium Styling
 st.markdown("""
