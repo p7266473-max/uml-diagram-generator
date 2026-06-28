@@ -8,25 +8,33 @@ from google.genai import types
 
 st.set_page_config(page_title="Core Sandbox Engine", layout="wide")
 
-hide_embedded_platform_elements = """
+# Comprehensive interface sterilization
+st.markdown("""
     <style>
-        /* Hide top navigation utility lines and headers */
-        header { visibility: hidden !important; }
-        [data-testid="stHeader"] { display: none !important; }
-        div[data-testid="stToolbar"] { display: none !important; }
-        div[data-testid="stDecoration"] { display: none !important; }
+        /* Erase main navigation toolbar elements completely */
+        header, [data-testid="stHeader"], div[data-testid="stToolbar"], div[data-testid="stDecoration"] {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0px !important;
+        }
+        div[data-testid="stStatusWidget"] {
+            visibility: hidden !important;
+            display: none !important;
+        }
         
-        /* Platform status widget container */
-        div[data-testid="stStatusWidget"] { visibility: hidden !important; }
+        /* Wipe out community cloud viewer badges, profile portals, and the crown tray globally */
+        footer, .viewerBadge, [id^="viewer-badge"], div[class*="viewerBadge"] {
+            display: none !important;
+            visibility: hidden !important;
+        }
         
-        /* Default footer */
-        footer { visibility: hidden !important; }
-        
-        /* Adjust layout spacing cleanly to eliminate vertical whitespace */
-        .block-container { padding-top: 1rem !important; }
+        /* Maximize vertical display canvas space */
+        .block-container {
+            padding-top: 1rem !important;
+            padding-bottom: 0rem !important;
+        }
     </style>
-"""
-st.markdown(hide_embedded_platform_elements, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # Custom Premium Styling
 st.markdown("""
